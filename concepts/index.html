@@ -203,14 +203,14 @@
     </div>
     <span class="md-source__repository">virtufin/docs</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/docs/commit/4e0bf7d5e1eaf4a5011393f20f91bbb421675f1f"
+    <a href="https://git.haenerconsulting.com/virtufin/docs/commit/9a06b8b649190789c8c8ccfe0354e339655a5ead"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 4e0bf7d">
+       title="View commit 9a06b8b">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">4e0bf7d</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">9a06b8b</text>
       </svg>
     </a>
 </div>
@@ -404,14 +404,14 @@
     </div>
     <span class="md-source__repository">virtufin/docs</span>
   </a>
-    <a href="https://git.haenerconsulting.com/virtufin/docs/commit/4e0bf7d5e1eaf4a5011393f20f91bbb421675f1f"
+    <a href="https://git.haenerconsulting.com/virtufin/docs/commit/9a06b8b649190789c8c8ccfe0354e339655a5ead"
        class="md-source-commit-badge"
        target="_blank"
        rel="noopener"
-       title="View commit 4e0bf7d">
+       title="View commit 9a06b8b">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 22" width="82" height="22" style="vertical-align:middle;">
         <rect width="82" height="22" rx="4" fill="#e9ecef" stroke="currentColor" stroke-width="0.75" opacity="0.6"/>
-        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">4e0bf7d</text>
+        <text x="41" y="15.5" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" font-weight="600" fill="currentColor">9a06b8b</text>
       </svg>
     </a>
 </div>
@@ -934,7 +934,7 @@ through the gateway.</p>
 <li><strong>Why Virtufin uses it:</strong> one wire protocol for all backends,
   one client library per language, streaming for free, native
   integration with the reflection-based gateway.</li>
-<li>See <a href="https://specs.docs.virtufin.com/cross-cutting/">Cross-cutting spec</a>
+<li>See <a href="https://specs.docs.virtufin.com/specs/cross-cutting/">Cross-cutting spec</a>
   for the platform-wide rules.</li>
 </ul>
 <h2 id="dapr">Dapr</h2>
@@ -949,7 +949,7 @@ without changes to the calling code.</p>
   <code>docker compose</code>, bare metal, and a sidecar-less in-process
   mode), one API for pub/sub + state + service invocation, and
   no bespoke SDK per language.</li>
-<li>See <a href="https://specs.docs.virtufin.com/cross-cutting/">Cross-cutting spec</a>.</li>
+<li>See <a href="https://specs.docs.virtufin.com/specs/cross-cutting/">Cross-cutting spec</a>.</li>
 </ul>
 <h2 id="multi-instance-peer-forwarding-per-id-routing">Multi-instance peer forwarding (per-id routing)</h2>
 <p>In a multi-instance deployment, RPCs that target a specific
@@ -965,8 +965,8 @@ owner via a direct gRPC channel.</p>
   (no reflection-based serialization), the forwarding path adds
   negligible latency (~2 ms), and lazy reclamation on forward
   failure eliminates background sweeper services.</li>
-<li>See <a href="https://specs.docs.virtufin.com/websocket-proxy/">websocket-proxy spec</a>
-  and <a href="https://specs.docs.virtufin.com/worker-management/">worker-management spec</a>.</li>
+<li>See <a href="https://specs.docs.virtufin.com/specs/websocket-proxy/">websocket-proxy spec</a>
+  and <a href="https://specs.docs.virtufin.com/specs/worker-management/">worker-management spec</a>.</li>
 </ul>
 <h2 id="pubsub-cloudevents-10">Pub/Sub (CloudEvents 1.0)</h2>
 <p>All inter-service events are
@@ -982,7 +982,7 @@ Dapr pub/sub directly.</p>
   event metadata (<code>source</code>, <code>type</code>, <code>subject</code>, <code>time</code>),
   CloudEvents 1.0 has implementations in every target language,
   and routing on <code>ce-type</code> + <code>subject</code> is the unit of subscription.</li>
-<li>See <a href="https://specs.docs.virtufin.com/pubsub-topics/">pubsub-topics spec</a>
+<li>See <a href="https://specs.docs.virtufin.com/specs/pubsub-topics/">pubsub-topics spec</a>
   for the topic naming scheme.</li>
 </ul>
 <h2 id="lanes-scenarios-event-routing">Lanes &amp; scenarios (event routing)</h2>
@@ -1005,8 +1005,8 @@ same market data stream with a different time clock.</p>
   production and backtest by changing one address. A new
   selector (a new data universe) is a topic addition, not a code
   change.</li>
-<li>See <a href="https://specs.docs.virtufin.com/pubsub-topics/">pubsub-topics spec</a>
-  and <a href="https://specs.docs.virtufin.com/scenarios/">scenarios spec</a>.</li>
+<li>See <a href="https://specs.docs.virtufin.com/specs/pubsub-topics/">pubsub-topics spec</a>
+  and <a href="https://specs.docs.virtufin.com/specs/scenarios/">scenarios spec</a>.</li>
 </ul>
 <h2 id="state-distributed-kv">State (distributed KV)</h2>
 <p>State is a flat key-value store, partitioned by service name. The
@@ -1020,7 +1020,7 @@ Dapr's state API.</p>
   gateway's state is a generic KV; the Dapr sidecar talks to
   whatever backing store is configured (Redis, Cosmos, Postgres,
   in-memory for tests).</li>
-<li>See <a href="https://specs.docs.virtufin.com/cross-cutting/">Cross-cutting spec</a>.</li>
+<li>See <a href="https://specs.docs.virtufin.com/specs/cross-cutting/">Cross-cutting spec</a>.</li>
 </ul>
 <h2 id="workers">Workers</h2>
 <p>A worker is a piece of code that subscribes to events (or accepts
@@ -1028,7 +1028,7 @@ commands) and produces events back. The
 <a href="https://workmanager.docs.virtufin.com/">WorkManager</a> loads
 workers via pluggable engines and dispatches incoming events to
 them. The wire protocol is fixed by the
-<a href="https://specs.docs.virtufin.com/worker-management/">worker-management spec</a>.</p>
+<a href="https://specs.docs.virtufin.com/specs/worker-management/">worker-management spec</a>.</p>
 <ul>
 <li><strong>Why Virtufin uses it:</strong> strategy code is a unit of deployment,
   not a service. A new strategy does not require a new gRPC
@@ -1077,7 +1077,7 @@ four:</p>
   for the strategy author, not a constraint of the platform.
   In-process is the default because it has the lowest latency
   and the simplest deploy.</li>
-<li>See <a href="https://specs.docs.virtufin.com/worker-management/#engines">engines spec</a>.</li>
+<li>See <a href="https://specs.docs.virtufin.com/specs/worker-management/#engines">engines spec</a>.</li>
 </ul>
 <h2 id="nativeaot">NativeAOT</h2>
 <p>The .NET services (<code>virtufin-api</code>, <code>virtufin-websocketmanager</code>,
@@ -1088,7 +1088,7 @@ No JIT, no runtime install, no warm-up.</p>
 <li><strong>Why Virtufin uses it:</strong> consistent resource profile with the
   Python and native workers, sub-100ms cold start for autoscaling,
   fewer moving parts in production.</li>
-<li>See <a href="https://specs.docs.virtufin.com/cross-cutting/#nativeaot">Cross-cutting spec</a>.</li>
+<li>See <a href="https://specs.docs.virtufin.com/specs/cross-cutting/#nativeaot">Cross-cutting spec</a>.</li>
 </ul>
 <h2 id="cloudevents-10-envelope">CloudEvents 1.0 (envelope)</h2>
 <p>The wire format for every event. The Virtufin-specific extensions
@@ -1101,7 +1101,7 @@ live in the same envelope: <code>correlationid</code>, <code>scenarioid</code>, 
   consumer can route on <code>clocktype=historical</code> to filter out
   production-only paths, or on <code>scenarioid=backtest-42</code> to
   isolate a single backtest's outputs.</li>
-<li>See <a href="https://specs.docs.virtufin.com/pubsub-topics/">pubsub-topics spec</a>.</li>
+<li>See <a href="https://specs.docs.virtufin.com/specs/pubsub-topics/">pubsub-topics spec</a>.</li>
 </ul>
 
 
@@ -1134,7 +1134,7 @@ live in the same envelope: <code>correlationid</code>, <code>scenarioid</code>, 
     <div class="md-copyright__highlight">
       <div style="display:table;width:100%">
   <span style="display:table-cell">&copy; 2026 Häner Consulting. All Rights Reserved.</span>
-  <span style="display:table-cell;text-align:right">2026-07-16T09:29:35Z</span>
+  <span style="display:table-cell;text-align:right">2026-07-16T10:25:10Z</span>
 </div>
 
     </div>
