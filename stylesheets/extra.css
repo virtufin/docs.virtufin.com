@@ -33,3 +33,36 @@
 .md-copyright {
   flex: 1;
 }
+
+/* Click-to-zoom overlay for Mermaid diagrams */
+.mermaid svg {
+  cursor: zoom-in;
+}
+
+.mermaid-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.mermaid-zoom-overlay svg {
+  max-width: 95vw;
+  max-height: 95vh;
+  width: auto;
+  height: auto;
+  background: var(--md-default-bg-color);
+  border-radius: 4px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+body.mermaid-zoom-active {
+  overflow: hidden;
+}
