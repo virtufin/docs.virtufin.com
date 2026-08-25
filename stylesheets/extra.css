@@ -34,18 +34,49 @@
   flex: 1;
 }
 
-/* Click-to-zoom for Mermaid diagrams. Material renders each diagram's
-   <svg> inside a closed shadow root on the `.mermaid` div (see
-   mermaid-zoom.js) -- closed mode blocks all external access to that
-   content, so cloning it into a separate overlay isn't possible.
-   Instead the host div itself is fixed-positioned, centered, and
-   transform-scaled in place: transform is a paint-level operation
-   that scales whatever is already rendered inside the element
-   regardless of shadow-DOM access. `cursor` is an inherited property,
-   so setting it here still reaches the shadow tree's rendered content
-   via normal CSS inheritance. */
-.mermaid {
+/* Zoom-in button for Mermaid diagrams (mermaid-zoom.js). Not a
+   click-anywhere-on-the-diagram handler: every node in these diagrams
+   carries a Mermaid `click nodeName "url"` navigation directive, so a
+   background click handler would fight per-node links for the same
+   click over nearly the whole diagram surface. The button is a
+   separate, always-present light-DOM sibling instead (`.mermaid`
+   itself has no light-DOM children Material would render -- its
+   content lives in a closed shadow root -- so the button lives in a
+   wrapper div around it, not inside it).
+
+   Zooming fixed-positions and transform-scales the `.mermaid` div
+   itself in place: closed shadow mode blocks all external access to
+   its content (cloning the <svg> isn't possible), but transform is a
+   paint-level operation that scales whatever's already rendered
+   inside the element regardless of shadow-DOM access. */
+.mermaid-zoom-wrapper {
+  position: relative;
+}
+
+.mermaid-zoom-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color--light);
+  opacity: 0.75;
   cursor: zoom-in;
+  transition: opacity 125ms;
+}
+.mermaid-zoom-button:hover {
+  opacity: 1;
+}
+.mermaid-zoom-button svg {
+  fill: currentColor;
 }
 
 .mermaid-zoom-backdrop {
@@ -65,7 +96,6 @@
   transform-origin: center center;
   background: var(--md-default-bg-color);
   border-radius: 4px;
-  cursor: zoom-out;
 }
 
 body.mermaid-zoom-active {
