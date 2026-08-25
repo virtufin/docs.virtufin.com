@@ -34,8 +34,14 @@
   flex: 1;
 }
 
-/* Click-to-zoom overlay for Mermaid diagrams */
-.mermaid svg {
+/* Click-to-zoom overlay for Mermaid diagrams. Material renders each
+   diagram's <svg> inside a closed shadow root on the `.mermaid` div
+   (see mermaid-zoom.js) -- shadow DOM style encapsulation means a
+   `.mermaid svg` descendant selector never reaches it (and there's no
+   light-DOM svg for it to match anyway). `cursor` is an inherited
+   property though, so setting it on the host div itself still reaches
+   the shadow tree's rendered content via normal CSS inheritance. */
+.mermaid {
   cursor: zoom-in;
 }
 
