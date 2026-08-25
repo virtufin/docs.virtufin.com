@@ -34,39 +34,38 @@
   flex: 1;
 }
 
-/* Click-to-zoom overlay for Mermaid diagrams. Material renders each
-   diagram's <svg> inside a closed shadow root on the `.mermaid` div
-   (see mermaid-zoom.js) -- shadow DOM style encapsulation means a
-   `.mermaid svg` descendant selector never reaches it (and there's no
-   light-DOM svg for it to match anyway). `cursor` is an inherited
-   property though, so setting it on the host div itself still reaches
-   the shadow tree's rendered content via normal CSS inheritance. */
+/* Click-to-zoom for Mermaid diagrams. Material renders each diagram's
+   <svg> inside a closed shadow root on the `.mermaid` div (see
+   mermaid-zoom.js) -- closed mode blocks all external access to that
+   content, so cloning it into a separate overlay isn't possible.
+   Instead the host div itself is fixed-positioned, centered, and
+   transform-scaled in place: transform is a paint-level operation
+   that scales whatever is already rendered inside the element
+   regardless of shadow-DOM access. `cursor` is an inherited property,
+   so setting it here still reaches the shadow tree's rendered content
+   via normal CSS inheritance. */
 .mermaid {
   cursor: zoom-in;
 }
 
-.mermaid-zoom-overlay {
+.mermaid-zoom-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 999;
   background: rgba(0, 0, 0, 0.85);
   cursor: zoom-out;
-  padding: 2rem;
-  box-sizing: border-box;
 }
 
-.mermaid-zoom-overlay svg {
-  max-width: 95vw;
-  max-height: 95vh;
-  width: auto;
-  height: auto;
+.mermaid.mermaid-zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, -50%) scale(var(--mermaid-zoom-scale, 1));
+  transform-origin: center center;
   background: var(--md-default-bg-color);
   border-radius: 4px;
-  padding: 1rem;
-  box-sizing: border-box;
+  cursor: zoom-out;
 }
 
 body.mermaid-zoom-active {
