@@ -20,6 +20,10 @@
 // (added next to each diagram, not part of it) removes the ambiguity:
 // clicking the diagram always navigates (unchanged Mermaid behavior),
 // clicking the button always zooms.
+//
+// Single source of truth: fetched into every repo's docs build by
+// virtufin-common/.github/workflows/docs-common.yaml's "Fetch shared
+// docs templates" step, not committed per-repo. Fix it here once.
 
 function zoomDiagram(host) {
   var rect = host.getBoundingClientRect();
